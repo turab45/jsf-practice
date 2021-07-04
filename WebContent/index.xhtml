@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      
+<h:head>  
+<title>Welcome Page</title>  
+</h:head>  
+<h:body> 
+
+<h:form id="student-form">  
+<h:outputLabel for="studentname">Student Name</h:outputLabel>  
+<h:inputText id="studentname" value="#{studentMB.name}" required="true" requiredMessage="Student Name is required"/><br/>
+<h:outputLabel for="fathername">Father Name</h:outputLabel>
+<h:inputText id="fathername" value="#{studentMB.fatherName}" required="true" requiredMessage="Father Name is required"/><br/>
+<h:outputLabel for="date">Date of Birth</h:outputLabel>
+<h:inputText id="date" value="#{studentMB.dateOfBirth}" size="20" required="true" label="Receipt Date" >
+          <f:convertDateTime pattern="d-M-yyyy" />
+</h:inputText><br/>  
+<h:outputLabel for="department">Department</h:outputLabel>  
+<h:inputText id="department" value="#{studentMB.department}" required="true" requiredMessage="Department is required"/><br/>
+<h:outputLabel for="district">District</h:outputLabel>
+<h:inputText id="district" value="#{studentMB.district}" required="true" requiredMessage="District is required"/><br/>
+<h:commandButton id="submit-button" value="Submit" action="#{studentMB.add()}"/>  
+</h:form>  
+</h:body>  
+</html>  

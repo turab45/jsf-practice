@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+    	<title>JSF components</title>
+    </h:head>
+    <h:body bgcolor="white">
+    	<h2>JSF all components!</h2>
+    	
+    	<h:outputText value="Student From." /><br/>
+    	<h:inputText value="Turab" placeholder="Enter student name" /><br/>
+    	<h:inputSecret value="Password" placeholder="Enter password" /><br/>
+    	<h:inputTextarea value="This is student address" /><br/>
+    	<h:graphicImage value="/life.jpg" height="100px" width="100px"/><br/>
+    	<h:outputFormat value="This is formatted output." /><br/>
+    	<h:outputLink >This is a link</h:outputLink><br/>
+    	<h:selectBooleanCheckbox value="Remember me." id="rme"/><br/>
+    	<h:outputText value="My Favourite countries." /><br/>
+    	<h:selectManyCheckbox value="counties">
+    		<f:selectItem itemValue="1" itemLabel="Pakistan"/>
+    		<f:selectItem itemValue="1" itemLabel="Turkey"/>
+    		<f:selectItem itemValue="1" itemLabel="Italy"/>
+    		<f:selectItem itemValue="1" itemLabel="UAE"/>
+    		<f:selectItem itemValue="1" itemLabel="Spain"/>
+    		<f:selectItem itemValue="1" itemLabel="Switzerland"/>
+    		<f:selectItem itemValue="1" itemLabel="Norway"/>
+    		<f:selectItem itemValue="1" itemLabel="Germany"/>
+    	</h:selectManyCheckbox><br/>
+    	
+    	<h:outputText value="Gender" /><br/>
+    	<h:selectOneRadio value="radioes">
+    		<f:selectItem itemLabel="Male"/>
+    		<f:selectItem itemLabel="Female"/>
+    		<f:selectItem itemLabel="Other"/>
+    	</h:selectOneRadio><br/>
+    	
+    	<h:outputText value="List of my favorite countries" /><br/>
+    	<h:selectManyListbox value="countries">
+    		<f:selectItem itemLabel="Pakistan"/>
+    		<f:selectItem itemValue="1" itemLabel="Turkey"/>
+    		<f:selectItem itemValue="1" itemLabel="Italy"/>
+    		<f:selectItem itemValue="1" itemLabel="UAE"/>
+    		<f:selectItem itemValue="1" itemLabel="Spain"/>
+    		<f:selectItem itemValue="1" itemLabel="Switzerland"/>
+    		<f:selectItem itemValue="1" itemLabel="Norway"/>
+    		<f:selectItem itemValue="1" itemLabel="Germany"/>
+    	</h:selectManyListbox><br/>
+    	
+    	<h:outputText value="Many selection." /><br/>
+    	<h:selectManyListbox value="many">
+    		<f:selectItem itemLabel="Pakistan"/>
+    		<f:selectItem itemValue="1" itemLabel="Turkey"/>
+    		<f:selectItem itemValue="1" itemLabel="Italy"/>
+    		<f:selectItem itemValue="1" itemLabel="UAE"/>
+    		<f:selectItem itemValue="1" itemLabel="Spain"/>
+    		<f:selectItem itemValue="1" itemLabel="Switzerland"/>
+    		<f:selectItem itemValue="1" itemLabel="Norway"/>
+    		<f:selectItem itemValue="1" itemLabel="Germany"/>
+    	</h:selectManyListbox><br/>
+    	<h:outputText value="Single select menu." /><br/>
+    	<h:selectOneMenu value="menu">
+    		<f:selectItem itemLabel="Pakistan"/>
+    		<f:selectItem itemValue="1" itemLabel="Turkey"/>
+    		<f:selectItem itemValue="1" itemLabel="Italy"/>
+    		<f:selectItem itemValue="1" itemLabel="UAE"/>
+    		<f:selectItem itemValue="1" itemLabel="Spain"/>
+    		<f:selectItem itemValue="1" itemLabel="Switzerland"/>
+    		<f:selectItem itemValue="1" itemLabel="Norway"/>
+    		<f:selectItem itemValue="1" itemLabel="Germany"/>
+    	</h:selectOneMenu>
+    	
+    	<h:commandButton action="#" value="Submit" />
+    	
+    	
+    </h:body>
+</html>
