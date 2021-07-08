@@ -90,13 +90,25 @@ public class StudentManagedBean {
 		StudentEntity studentEntity = new StudentEntity();
 		studentEntity.setName(this.name);
 		studentEntity.setFatherName(this.fatherName);
-		studentEntity.setDateOfBirth(this.dateOfBirth);
 		studentEntity.setDepartment(this.department);
 		studentEntity.setDistrict(this.district);
 		
 		studentDaoImpl.addStudent(studentEntity);
 		
-		return "welcome";
+		this.name = null;
+		this.fatherName = null;
+		return "";
+	}
+	
+	public String update(Integer id) {
+		return "";
+	}
+	
+	public String delete(Integer id) {
+		StudentEntity studentEntity = studentDaoImpl.getStudentById(id);
+		studentDaoImpl.deleteStudent(studentEntity);
+		System.out.println("Deleting...");
+		return "";
 	}
 	
 
