@@ -1,6 +1,8 @@
 package com.managedbean;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -68,6 +70,15 @@ public class StudentManagedBean {
 		this.district = district;
 	}
 	
+	
+	public List<StudentEntity> getAllStudents(){
+		List<StudentEntity> allStudents = null;
+		
+		StudentDaoImpl studentDaoImpl = new StudentDaoImpl();
+		allStudents = studentDaoImpl.getAllStudent();
+		
+		return allStudents;
+	}
 	
 	public String add() {
 		System.out.println("Name          : "+this.name);
