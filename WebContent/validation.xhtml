@@ -15,8 +15,9 @@
     	
     	<h:form id="form">
     	<h:outputText value="Name." /><br/>
-    	<h:inputText value="#{studentMB.name}" id="name" validatorMessage="Name is required."><f:validateRequired/></h:inputText>
+    	<h:inputText value="#{studentMB.name}" id="name" required="true" requiredMessage="Name Can't be empty"><f:validateRequired/></h:inputText>
     	<h:commandButton action="#{studentMB.cancel()}" value="Submit" />
+    	<h:message for="name" style="color: red"/>
     	</h:form>
     	
     	

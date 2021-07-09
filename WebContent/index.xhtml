@@ -15,7 +15,62 @@
 
 <div class="container mt-5">
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo"><strong>NEW</strong></button>
+<div class="container mt-5 d-flex justify-content-center flex-column">
+
+<div class="card text-dark bg-light mb-3" style="max-width: 35rem;">
+  <div class="card-header"><strong>Add New Student</strong></div>
+  <div class="card-body">
+    <h:form>
+  <div class="mb-3">
+          <h:outputText value="Name" class="col-form-label" />
+          <h:inputText id="name" value="#{studentMB.name}" class="form-control" required="true" requiredMessage="Name is required."><f:validateRequired/></h:inputText>
+          <h:message for="name" class="form-text" style="color:red" />
+           
+          </div>
+          <div class="mb-3">
+          <h:outputText value="Father Name" class="col-form-label" />
+          <h:inputText id="fatherName" value="#{studentMB.fatherName}" class="form-control" required="true" requiredMessage="Father name is required." ><f:validateRequired/></h:inputText>
+            <h:message for="fatherName" class="form-text" style="color:red" />
+          </div>
+          <div class="mb-3">
+          <h:outputText value="Department" class="col-form-label" />
+          <h:selectOneMenu value="#{studentMB.department}" class="form-select" aria-label="Default Select Department">
+           <f:selectItem itemValue="department" itemLabel="Select Department" selected="true"/>
+    		<f:selectItem itemValue="Software" itemLabel="Software"/>
+    		<f:selectItem itemValue="Computer Systems" itemLabel="Computer Systems"/>
+    		<f:selectItem itemValue="Telecommunication" itemLabel="Telecommunication"/>
+    		<f:selectItem itemValue="Electronics" itemLabel="Electronics"/>
+    		<f:selectItem itemValue="Mechanical" itemLabel="Mechanical"/>
+    		<f:selectItem itemValue="Electrical" itemLabel="Electrical"/>
+    		<f:selectItem itemValue="Petrolium and Natural Gas" itemLabel="Petrolium and Natural Gas"/>
+    	</h:selectOneMenu>
+           
+          </div>
+          
+          <div class="mb-3">
+          <h:outputText value="District" class="col-form-label" />
+          <h:selectOneMenu value="#{studentMB.district}" class="form-select" aria-label="Select District">
+          <f:selectItem itemValue="district" itemLabel="Select District" selected="true"/>
+    		<f:selectItem itemValue="Tharparkar" itemLabel="Tharparkar"/>
+    		<f:selectItem itemValue="Umerkot" itemLabel="Umerkot"/>
+    		<f:selectItem itemValue="Nawabshah" itemLabel="Nawabshah"/>
+    		<f:selectItem itemValue="Jamshoro" itemLabel="Jamshoro"/>
+    		<f:selectItem itemValue="Hyderabad" itemLabel="Hyderabad"/>
+    		<f:selectItem itemValue="Sukkur" itemLabel="Sukkur"/>
+    		<f:selectItem itemValue="Larkana" itemLabel="Larkana"/>
+    	</h:selectOneMenu>
+           
+          </div>
+        
+        <div class="mb-3">
+        <h:commandButton action="#{studentMB.cancel()}" value="Cancel" class="btn btn-primary" style="margin-right: 5px;"/>
+        <h:commandButton action="#{studentMB.add()}" value="Add" class="btn btn-primary"/>
+      	</div>
+</h:form>
+  </div>
+</div>
+
+</div>
 
 
 <h:dataTable class="table" value="#{studentMB.allStudents}" var="student">  
@@ -52,69 +107,6 @@
 	
 </h:dataTable>
 
-
-
-
-
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-  
-    <div class="modal-content">
-     <h:form id="form">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Student</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-          <div class="mb-3">
-          <h:outputText value="Name" class="col-form-label" />
-          <h:inputText id="name" value="#{studentMB.name}" class="form-control"><f:validateRequired/></h:inputText>
-          <h:message for="name" value="Name can't be empty." class="form-text" style="color:red" />
-           
-          </div>
-          <div class="mb-3">
-          <h:outputText value="Father Name" class="col-form-label" />
-          <h:inputText value="#{studentMB.fatherName}" class="form-control" />
-           
-          </div>
-          <div class="mb-3">
-          <h:outputText value="Department" class="col-form-label" />
-          <h:selectOneMenu value="#{studentMB.department}" class="form-select" aria-label="Default Select Department">
-    		<f:selectItem itemValue="Software" itemLabel="Software"/>
-    		<f:selectItem itemValue="Computer Systems" itemLabel="Computer Systems"/>
-    		<f:selectItem itemValue="Telecommunication" itemLabel="Telecommunication"/>
-    		<f:selectItem itemValue="Electronics" itemLabel="Electronics"/>
-    		<f:selectItem itemValue="Mechanical" itemLabel="Mechanical"/>
-    		<f:selectItem itemValue="Electrical" itemLabel="Electrical"/>
-    		<f:selectItem itemValue="Petrolium and Natural Gas" itemLabel="Petrolium and Natural Gas"/>
-    	</h:selectOneMenu>
-           
-          </div>
-          
-          <div class="mb-3">
-          <h:outputText value="District" class="col-form-label" />
-          <h:selectOneMenu value="#{studentMB.district}" class="form-select" aria-label="Select District">
-    		<f:selectItem itemValue="Tharparkar" itemLabel="Tharparkar"/>
-    		<f:selectItem itemValue="Umerkot" itemLabel="Umerkot"/>
-    		<f:selectItem itemValue="Nawabshah" itemLabel="Nawabshah"/>
-    		<f:selectItem itemValue="Jamshoro" itemLabel="Jamshoro"/>
-    		<f:selectItem itemValue="Hyderabad" itemLabel="Hyderabad"/>
-    		<f:selectItem itemValue="Sukkur" itemLabel="Sukkur"/>
-    		<f:selectItem itemValue="Larkana" itemLabel="Larkana"/>
-    	</h:selectOneMenu>
-           
-          </div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <h:commandButton action="#{studentMB.add()}" value="Add" class="btn btn-primary"/>
-      </div>
-       </h:form>
-    </div>
-  </div>
-</div>  
 
 <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -169,7 +161,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <h:commandButton action="#{studentMB.update()}" value="Add" class="btn btn-primary"/>
+        <h:commandButton action="#{studentMB.add()}" value="Add" class="btn btn-primary"/>
       </div>
        </h:form>
     </div>
