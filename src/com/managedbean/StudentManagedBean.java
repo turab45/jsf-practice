@@ -3,9 +3,11 @@ package com.managedbean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import com.dao.StudentDao;
 import com.daoimpl.StudentDaoImpl;
@@ -26,6 +28,7 @@ public class StudentManagedBean {
 	
 	
 	private StudentDao studentDaoImpl = null;
+	private Map<String,Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();  
 	
 	public StudentManagedBean() {
 		super();
@@ -101,7 +104,29 @@ public class StudentManagedBean {
 	}
 	
 	public String update(Integer id) {
-		return "";
+		StudentEntity studentEntity = studentDaoImpl.getStudentById(id);
+		this.name = studentEntity.getName();
+		this.fatherName = studentEntity.getFatherName();
+		this.department = studentEntity.getDepartment();
+		this.district = studentEntity.getDistrict();
+		
+		sessionMap.put("editUser", studentEntity);
+		
+		return "edit.xhtml";
+	}
+	
+	public String update(StudentEntity entity) {
+		
+		
+		entity.setName(this.name);
+		entity.setFatherName(this.fatherName);
+		entity.setDepartment(this.department);
+		entity.setDistrict(this.district);
+		
+		studentDaoImpl.updateStudent(entity);
+		this.name = null;
+		this.fatherName = null;
+		return "index.xhtml";
 	}
 	
 	public String delete(Integer id) {
@@ -109,6 +134,12 @@ public class StudentManagedBean {
 		studentDaoImpl.deleteStudent(studentEntity);
 		System.out.println("Deleting...");
 		return "";
+	}
+	
+	public String cancel() {
+		this.name = null;
+		this.fatherName = null;
+		return "index.xhtml";
 	}
 	
 
